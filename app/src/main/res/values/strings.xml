@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Boutique Artisanal</string>
+    <string name="mnu_liste">Liste des articles</string>
+    <string name="mnu_panier">Panier d\'achat</string>
+    <string name="mnu_ajout">Ajouter un article</string>
+    <string name="h_nom">Entrez le nom</string>
+    <string name="h_description">Entrez une description (optionel)</string>
+    <string name="h_prix">Entrez le prix</string>
+    <string name="h_date">Selectionnez date de fabrication</string>
+    <string name="cat_default">Selectionnez categorie</string>
+    <string name="cat_bijoux">Bijoux</string>
+    <string name="cat_textile" translatable="false">Textile</string>
+    <string name="cat_bois">Bois</string>
+    <string name="cat_ceramique">Ceramique</string>
+    <string name="rad_original" translatable="false">Original</string>
+    <string name="rad_reproduction" translatable="false">Reproduction</string>
+    <string name="rad_taxable" translatable="false">Taxable</string>
+    <string name="rad_non_taxable" translatable="false">Non taxable</string>
+    <string name="spn_tax_default">Selectionnez taux</string>
+    <string name="btn_enregistrer">Enregistrer</string>
+    <string name="btn_recommencer">Recommencer</string>
+    <string name="btn_recommencer_title">Reinitialiser formulaire</string>
+    <string name="btn_recommencer_msg">Etes-vous sur de vouloir recommencer?</string>
+    <string name="btn_ajouter">Ajouter</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
+    <string name="fabrication" translatable="false">Fabrication : %s</string>
+
+
+    <!--  toast validation  -->
+    <string name="t_nom">Nom est requis</string>
+    <string name="t_prix_empty">Prix est requis</string>
+    <string name="t_prix_decimal">Prix maximum 2 decimales</string>
+    <string name="t_prix_positif">Prix doit etre positif</string>
+    <string name="t_categorie">Selectionnez une categorie</string>
+    <string name="t_date">Indiquez date de fabrication</string>
+    <string name="t_type">Indiquez un type</string>
+    <string name="t_taxable">Indiquez si taxable</string>
+    <string name="t_taux">Selectionnez un taux</string>
+
+
+    <!--  toast add success  -->
+    <string name="t_success">Article ajouter</string>
+
+    <!--    filter stuff -->
+    <string name="ascendant">Ascendant</string>
+    <string name="descendant">Descendant</string>
+    <string-array name="filtre_options">
+        <item>Nom</item>
+        <item>Prix</item>
+    </string-array>
+
+    <!--    add edit alert dialog -->
+    <string name="add_title">Ajout</string>
+    <string name="add_msg">Confirmez l\'ajout?</string>
+    <string name="confirm_edit_msg">Confirmez la modification?</string>
+
+    <!--  cart item layout  -->
+    <string name="quantite">Quantite</string>
+    <string name="baisser_quantite">Baisser quantite</string>
+    <string name="augmenter_quantite">Augmenter quantite</string>
+
+    <!--  cart fragment  -->
+    <string name="panier">Panier</string>
+    <string name="totalPrix" translatable="false">Total : $0.00</string>
+    <string name="totalTaxe" translatable="false">Taxes : $0.00</string>
+    <string name="totalTTC" translatable="false">Total TTC : $0.00</string>
+    <string name="total" translatable="false">Total : $%.2f</string>
+    <string name="taxe" translatable="false">Taxes : $%.2f</string>
+    <string name="ttc" translatable="false">Total TTC : $%.2f</string>
+
+    <!--  del alert dialog  -->
+    <string name="del_title">Suppression</string>
+    <string name="del_msg">Supprimer cette article?</string>
+
+    <!--  edit alert dialog  -->
+    <string name="edit_title" translatable="false">Modification</string>
+    <string name="edit_msg">Modifier cette article?</string>
+    <string name="edit_inprogress_msg">Modification en cours. Voulez-vous annuler?</string>
+
+    <!--  cart handling  -->
+    <string name="ajoute">ajoute au panier</string>
+    <string name="enleve">enleve du panier</string>
+
+    <!--  lang  -->
+    <string name="lang">Changez de langue</string>
+    <string name="en" translatable="true">En</string>
+</resources>

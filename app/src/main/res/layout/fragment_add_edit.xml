@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".AddEditFragment">
+
+            <Button
+                android:id="@+id/btnRecommencer"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="36dp"
+                android:text="@string/btn_recommencer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnEnregistrer"
+                app:layout_constraintTop_toBottomOf="@+id/spnTaux" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDate"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="19dp"
+                android:hint="@string/h_date"
+                android:inputType="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spnCategorie" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPrix"
+                android:layout_width="0dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="16dp"
+                android:inputType="numberDecimal"
+                android:hint="@string/h_prix"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDescription"
+                android:layout_width="0dp"
+                android:layout_height="63dp"
+                android:layout_marginTop="26dp"
+                android:hint="@string/h_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtNom" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNom"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/h_nom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spnCategorie"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtPrix" />
+
+            <RadioGroup
+                android:id="@+id/radGrpType"
+                android:layout_width="0dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtDate">
+
+                <RadioButton
+                    android:id="@+id/radOriginal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="ORIGINAL"
+                    android:text="@string/rad_original" />
+
+                <RadioButton
+                    android:id="@+id/radReproduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="REPRODUCTION"
+                    android:text="@string/rad_reproduction" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radGrpTaxable"
+                android:layout_width="0dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radGrpType">
+
+                <RadioButton
+                    android:id="@+id/radTaxable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/rad_taxable" />
+
+                <RadioButton
+                    android:id="@+id/radNonTaxable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/rad_non_taxable" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/spnTaux"
+                android:layout_width="0dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radGrpTaxable" />
+
+            <Button
+                android:id="@+id/btnEnregistrer"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginBottom="36dp"
+                android:text="@string/btn_enregistrer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecommencer"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spnTaux" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Artisanal Boutique</string>
+    <string name="mnu_liste">Articles List</string>
+    <string name="mnu_panier">Shopping cart</string>
+    <string name="mnu_ajout">Add article</string>
+    <string name="h_nom">Enter name</string>
+    <string name="h_description">Enter description (optional)</string>
+    <string name="h_prix">Enter price</string>
+    <string name="h_date">Select manufacture date</string>
+    <string name="cat_default">Select category</string>
+    <string name="cat_bijoux">Jewels</string>
+    <string name="cat_bois">Wood</string>
+    <string name="cat_ceramique">Ceramic</string>
+    <string name="spn_tax_default">Select rate</string>
+    <string name="btn_enregistrer">Save</string>
+    <string name="btn_recommencer">Reset</string>
+    <string name="btn_recommencer_title">Reset form</string>
+    <string name="btn_recommencer_msg">Are you sure you wish to reset?</string>
+    <string name="btn_ajouter">Add</string>
+    <string name="oui">Yes</string>
+    <string name="non">No</string>
+    <string name="t_nom">Name required</string>
+    <string name="t_prix_empty">Price required</string>
+    <string name="t_prix_decimal">Price maximum 2 decimals</string>
+    <string name="t_prix_positif">Price must be positive</string>
+    <string name="t_categorie">Select category</string>
+    <string name="t_date">Indicate manufacture date</string>
+    <string name="t_type">Indicate type</string>
+    <string name="t_taxable">Indicate if taxable</string>
+    <string name="t_taux">Select rate</string>
+    <string name="t_success">Article added</string>
+    <string name="ascendant">Ascending</string>
+    <string name="descendant">Descending</string>
+    <string-array name="filtre_options">
+        <item>Name</item>
+        <item>Price</item>
+    </string-array>
+
+    <!--    add edit alert dialog -->
+    <string name="add_title">Add</string>
+    <string name="add_msg">Confirm add?</string>
+    <string name="confirm_edit_msg">Confirm modification?</string>
+
+    <!--  cart item layout  -->
+    <string name="quantite">Quantity</string>
+    <string name="baisser_quantite">Decrease quantity</string>
+    <string name="augmenter_quantite">Increase quantity</string>
+
+    <!--  cart fragment  -->
+    <string name="panier">Cart</string>
+    <string name="totalPrix" translatable="false">Total : $0.00</string>
+    <string name="totalTaxe" translatable="false">Taxes : $0.00</string>
+    <string name="totalTTC" translatable="false">Total TTC : $0.00</string>
+    <string name="total" translatable="false">Total : $%.2f</string>
+    <string name="taxe" translatable="false">Taxes : $%.2f</string>
+    <string name="ttc" translatable="false">Total TTC : $%.2f</string>
+
+    <!--  del alert dialog  -->
+    <string name="del_title">Deletion</string>
+    <string name="del_msg">Delete this article?</string>
+
+    <!--  edit alert dialog  -->
+    <string name="edit_title" translatable="false">Modification</string>
+    <string name="edit_msg">Modify this article?</string>
+    <string name="edit_inprogress_msg">Modification ongoing. Do you wish to cancel?</string>
+
+    <!--  cart handling  -->
+    <string name="ajoute">add to cart</string>
+    <string name="enleve">remove from cart</string>
+
+    <!--  lang  -->
+    <string name="lang">Change language</string>
+    <string name="en" translatable="true">Fr</string>
+</resources>

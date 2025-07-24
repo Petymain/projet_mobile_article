@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Projet_mobile1" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="toolbarStyle">@style/MyToolbarStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyToolbarStyle" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.Material3.Dark" />
+
+    <style name="Theme.Projet_mobile1" parent="Base.Theme.Projet_mobile1" />
+</resources>
