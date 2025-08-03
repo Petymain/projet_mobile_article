@@ -48,28 +48,30 @@ public class MainActivity extends AppCompatActivity {
         Drawable overflowIcon = toolbar.getOverflowIcon();
         overflowIcon.setTint(ContextCompat.getColor(this, R.color.white));
 
-        String fragmentName = getIntent().getStringExtra("fragment");
-        if (fragmentName != null){
-            Fragment fragmentToLoad = null;
-            switch (fragmentName){
-                case "PanierFragment":
-                    fragmentToLoad = new PanierFragment();
-                    break;
-                case "AddEditFragment":
-                    fragmentToLoad = new AddEditFragment();
-                    break;
-                case "ListeArticlesFragment":
-                default:
-                    fragmentToLoad = new ListeArticlesFragment();
-                    break;
+        if (savedInstanceState == null) {
+            String fragmentName = getIntent().getStringExtra("fragment");
+            if (fragmentName != null) {
+                Fragment fragmentToLoad = null;
+                switch (fragmentName) {
+                    case "PanierFragment":
+                        fragmentToLoad = new PanierFragment();
+                        break;
+                    case "AddEditFragment":
+                        fragmentToLoad = new AddEditFragment();
+                        break;
+                    case "ListeArticlesFragment":
+                    default:
+                        fragmentToLoad = new ListeArticlesFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, fragmentToLoad)
+                        .commit();
+            } else {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, new ListeArticlesFragment())
+                        .commit();
             }
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentContainer, fragmentToLoad)
-                    .commit();
-        } else {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentContainer, new ListeArticlesFragment())
-                    .commit();
         }
     }
 
