@@ -73,6 +73,10 @@ public class AddEditFragment extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener(){
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, month);
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
                         String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%d", dayOfMonth, (month + 1), year);
                         edtDate.setText(selectedDate);
                     }
@@ -140,13 +144,24 @@ public class AddEditFragment extends Fragment {
                 edtNom.setText(article.getNom());
                 edtDescription.setText(article.getDescription());
                 edtPrix.setText(String.valueOf(article.getPrix()));
-                spnCategorie.setSelection(article.getCategorie().ordinal());
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                spnCategorie.setSelection(article.getCategorie().ordinal() + 1); // Assuming 0 is a default/prompt value
+
+                calendar.setTime(article.getDate());
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String formattedDate = format.format(article.getDate());
                 edtDate.setText(formattedDate);
+
                 radGrpType.check(article.getType() == Article.Type.ORIGINAL ? R.id.radOriginal : R.id.radReproduction);
-                radGrpTaxable.check(article.getTaxable() ? R.id.radTaxable : R.id.radNonTaxable);
-                spnTaux.setSelection(Article.tauxPossible.indexOf(article.getTaux()) + 1);
+
+                if(article.getTaxable()){
+                    radGrpTaxable.check(R.id.radTaxable);
+                    int tauxPosition = Article.tauxPossible.indexOf(article.getTaux());
+                    if(tauxPosition != -1) {
+                        spnTaux.setSelection(tauxPosition + 1);
+                    }
+                } else {
+                    radGrpTaxable.check(R.id.radNonTaxable);
+                }
             }
         });
 
