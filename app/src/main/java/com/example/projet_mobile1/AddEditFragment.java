@@ -35,6 +35,8 @@ public class AddEditFragment extends Fragment {
     RadioGroup radGrpType, radGrpTaxable;
     Button btnEnregistrer, btnRecommencer;
     Calendar calendar;
+    private Article articleToEdit = null;
+    private int editPosition = -1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -138,40 +140,44 @@ public class AddEditFragment extends Fragment {
 
 
 //        receive edit article
-        getParentFragmentManager().setFragmentResultListener("article_edit", this, (key, bundle) ->{
-            Article article = (Article) bundle.getSerializable("article");
-            if (article != null){
-                edtNom.setText(article.getNom());
-                edtDescription.setText(article.getDescription());
-                edtPrix.setText(String.valueOf(article.getPrix()));
-                spnCategorie.setSelection(article.getCategorie().ordinal() + 1); // Assuming 0 is a default/prompt value
-
-                calendar.setTime(article.getDate());
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                String formattedDate = format.format(article.getDate());
-                edtDate.setText(formattedDate);
-
-                radGrpType.check(article.getType() == Article.Type.ORIGINAL ? R.id.radOriginal : R.id.radReproduction);
-
-                if(article.getTaxable()){
-                    radGrpTaxable.check(R.id.radTaxable);
-                    int tauxPosition = Article.tauxPossible.indexOf(article.getTaux());
-                    if(tauxPosition != -1) {
-                        spnTaux.setSelection(tauxPosition + 1);
-                    }
-                } else {
-                    radGrpTaxable.check(R.id.radNonTaxable);
-                }
-            }
-        });
-
-
-
-//        Save button
-        int editPosition = getArguments() != null ? getArguments().getInt("position", -1) : -1;
-        if (editPosition != -1){
-            ((MainActivity) requireActivity()).setEditMode(true);
+        if (getArguments() != null){
+            articleToEdit = (Article) getArguments().getSerializable("article");
+            editPosition = getArguments().getInt("position", -1);
         }
+
+
+        if (articleToEdit != null){
+            edtNom.setText(articleToEdit.getNom());
+            edtDescription.setText(articleToEdit.getDescription());
+            edtPrix.setText(String.valueOf(articleToEdit.getPrix()));
+            spnCategorie.setSelection(articleToEdit.getCategorie().ordinal() + 1); // Assuming 0 is a default/prompt value
+
+            calendar.setTime(articleToEdit.getDate());
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            String formattedDate = format.format(articleToEdit.getDate());
+            edtDate.setText(formattedDate);
+
+            radGrpType.check(articleToEdit.getType() == Article.Type.ORIGINAL ? R.id.radOriginal : R.id.radReproduction);
+
+            if(articleToEdit.getTaxable()){
+                radGrpTaxable.check(R.id.radTaxable);
+                int tauxPosition = Article.tauxPossible.indexOf(articleToEdit.getTaux());
+                if(tauxPosition != -1) {
+                    spnTaux.setSelection(tauxPosition + 1);
+                }
+            } else {
+                radGrpTaxable.check(R.id.radNonTaxable);
+            }
+
+            ((MainActivity) requireActivity()).setEditMode(true);
+        } else {
+            ((MainActivity) requireActivity()).setEditMode(false);
+        }
+
+
+
+
+//      Save button
         btnEnregistrer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

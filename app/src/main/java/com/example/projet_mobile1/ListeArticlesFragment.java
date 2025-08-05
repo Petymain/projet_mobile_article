@@ -47,19 +47,22 @@ public class ListeArticlesFragment extends Fragment {
         radGrpTriage = view.findViewById(R.id.radGrpTriage);
         lstArticles = view.findViewById(R.id.lstArticles);
 
-        loadData();
+//        loadData();
 
         if (savedInstanceState != null){
             filtrerParNom = savedInstanceState.getBoolean("filtrerParNom", true);
             trierAscendant = savedInstanceState.getBoolean("trierAscendant", true);
             ArrayList<Article> savedArticles = (ArrayList<Article>) savedInstanceState.getSerializable("articles");
-            trier();
+
             if (savedArticles != null){
                 articles.clear();
                 articles.addAll(savedArticles);
             }
-        }
 
+        } else {
+            loadData();
+        }
+        trier();
 
 
 //        Handle filter condition
