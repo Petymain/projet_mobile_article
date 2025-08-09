@@ -47,7 +47,6 @@ public class ListeArticlesFragment extends Fragment {
         radGrpTriage = view.findViewById(R.id.radGrpTriage);
         lstArticles = view.findViewById(R.id.lstArticles);
 
-//        loadData();
 
         if (savedInstanceState != null){
             filtrerParNom = savedInstanceState.getBoolean("filtrerParNom", true);
@@ -62,6 +61,9 @@ public class ListeArticlesFragment extends Fragment {
         } else {
             loadData();
         }
+
+        adapter = new ArticleAdapter(requireContext(), articles);
+        lstArticles.setAdapter(adapter);
         trier();
 
 
